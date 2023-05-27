@@ -1,0 +1,207 @@
+{
+  "filters": {
+    "dateFrom": "2022-05-17",
+    "dateTo": "2022-05-18",
+    "permission": "TIER_THREE"
+  },
+  "resultSet": {
+    "count": 10,
+    "competitions": "CPD,VEI,REG,PL,BSB,CLI",
+    "first": "2022-05-17",
+    "last": "2022-05-17",
+    "played": 1
+  },
+  "matches": [
+    {
+      "area": {
+        "id": 2045,
+        "name": "Chile",
+        "code": "CHL",
+        "flag": null
+      },
+      "competition": {
+        "id": 2048,
+        "name": "Primera División",
+        "code": "CPD",
+        "type": "LEAGUE",
+        "emblem": null
+      },
+      "season": {
+        "id": 1102,
+        "startDate": "2022-02-06",
+        "endDate": "2022-11-30",
+        "currentMatchday": 13,
+        "winner": null,
+        "stages": [
+          "REGULAR_SEASON"
+        ]
+      },
+      "id": 392181,
+      "utcDate": "2022-05-17T00:30:00Z",
+      "status": "FINISHED",
+      "minute": "90",
+      "injuryTime": 5,
+      "attendance": null,
+      "venue": null,
+      "matchday": 13,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "lastUpdated": "2022-05-17T17:49:28Z",
+      "homeTeam": {},
+      "awayTeam": {
+        "id": 4455,
+        "name": "Audax CS Italiano",
+        "shortName": "Audax Italiano",
+        "tla": "AUD",
+        "crest": "https://crests.football-data.org/4455.svg",
+        "coach": {
+          "id": 23574,
+          "name": "Juan Ribera",
+          "nationality": "Chile"
+        },
+        "leagueRank": 12,
+        "formation": "3-5-2",
+        "lineup": [],
+        "bench": [
+          "Tomás Ahumada"
+        ]
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 4,
+          "away": 1
+        },
+        "halfTime": {
+          "home": 2,
+          "away": 1
+        }
+      },
+      "goals": [
+        {
+          "minute": 14,
+          "injuryTime": null,
+          "type": "REGULAR",
+          "team": {
+            "id": 4465,
+            "name": "CDP Curicó Unido"
+          },
+          "scorer": {
+            "id": 59028,
+            "name": "Rodrigo Holgado"
+          },
+          "assist": null,
+          "score": {
+            "home": 1,
+            "away": 0
+          }
+        },
+        {
+          "minute": 21,
+          "injuryTime": null,
+          "type": "REGULAR",
+          "team": {
+            "id": 4465,
+            "name": "CDP Curicó Unido"
+          },
+          "scorer": {
+            "id": 138242,
+            "name": "Bayron Oyarzo"
+          },
+          "assist": null,
+          "score": {
+            "home": 2,
+            "away": 0
+          }
+        },
+        {
+          "minute": 38,
+          "injuryTime": null,
+          "type": "PENALTY",
+          "team": {
+            "id": 4455,
+            "name": "Audax CS Italiano"
+          },
+          "scorer": {
+            "id": 1130,
+            "name": "Tomás Andrade"
+          },
+          "assist": null,
+          "score": {
+            "home": 2,
+            "away": 1
+          }
+        },
+        {
+          "minute": 62,
+          "injuryTime": null,
+          "type": "REGULAR",
+          "team": {
+            "id": 4465,
+            "name": "CDP Curicó Unido"
+          },
+          "scorer": {
+            "id": 138242,
+            "name": "Bayron Oyarzo"
+          },
+          "assist": null,
+          "score": {
+            "home": 3,
+            "away": 1
+          }
+        },
+        {
+          "minute": 80,
+          "injuryTime": null,
+          "type": "REGULAR",
+          "team": {
+            "id": 4465,
+            "name": "CDP Curicó Unido"
+          },
+          "scorer": {
+            "id": 28306,
+            "name": "Agustín Nadruz"
+          },
+          "assist": null,
+          "score": {
+            "home": 4,
+            "away": 1
+          }
+        }
+      ],
+      "penalties": [
+        {
+          "player": {
+            "id": 1130,
+            "name": "Tomás Andrade"
+          },
+          "team": {
+            "id": 4455,
+            "name": "Audax CS Italiano"
+          },
+          "scored": true
+        },
+        {
+          "player": {
+            "id": 1130,
+            "name": "Tomás Andrade"
+          },
+          "team": {
+            "id": 4455,
+            "name": "Audax CS Italiano"
+          },
+          "scored": true
+        }
+      ],
+      "bookings": [],
+      "substitutions": [],
+      "odds": {
+        "homeWin": null,
+        "draw": null,
+        "awayWin": null
+      },
+      "referees": []
+    }
+  ]
+}

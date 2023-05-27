@@ -1,0 +1,16 @@
+{
+  "filters": {
+    "dateFrom": "2022-05-17",
+    "dateTo": "2022-05-18",
+    "permission": "TIER_THREE"
+  },
+  "resultSet": {
+    "count": 10,
+    "competitions": "CPD,VEI,REG,PL,BSB,CLI",
+    "first": "2022-05-17",
+    "last": "2022-05-17",
+    "played": 1
+  },
+  "matches": [
+  ]
+}

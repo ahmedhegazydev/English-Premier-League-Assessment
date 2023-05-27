@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/matches_nav_graph"
+    app:startDestination="@id/allMatchesListFragment">
+
+    <fragment
+        android:id="@+id/allMatchesListFragment"
+        android:name="com.carefer.englishpremierleague.ui.list.AllMatchesListFragment"
+        android:label="fragment_all_matches_showing_list"
+        tools:layout="@layout/fragment_all_matches_list" >
+        <action
+            android:id="@+id/action_allMatchesListFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/savedMatchesFragment"
+        android:name="com.carefer.englishpremierleague.ui.favorites.SavedMatchesFragment"
+        android:label="fragment_saved_matches"
+        tools:layout="@layout/fragment_saved_matches" >
+        <action
+            android:id="@+id/action_savedMatchesFragment_to_matchDetailsFragment"
+            app:destination="@id/matchDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/matchDetailsFragment"
+        android:name="com.carefer.englishpremierleague.ui.details.MatchDetailsFragment"
+        android:label="fragment_match_details"
+        tools:layout="@layout/fragment_match_details" >
+        <argument
+            android:name="match"
+            app:argType="com.carefer.englishpremierleague.data.model.Matches" />
+    </fragment>
+</navigation>
