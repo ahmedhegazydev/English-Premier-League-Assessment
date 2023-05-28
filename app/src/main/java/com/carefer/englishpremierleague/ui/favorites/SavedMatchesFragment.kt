@@ -18,7 +18,6 @@ import com.carefer.englishpremierleague.ui.adapter.ListItem
 import com.carefer.englishpremierleague.ui.adapter.ResultType
 import com.carefer.englishpremierleague.data.model.Matches
 import com.carefer.englishpremierleague.R
-import com.carefer.englishpremierleague.databinding.FragmentMatchDetailsBinding
 import com.carefer.englishpremierleague.databinding.FragmentSavedMatchesBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -107,10 +106,10 @@ class SavedMatchesFragment : Fragment(R.layout.fragment_saved_matches),
 
         /* `observeMatchDeletedEvent()` is a function that observes a LiveData event in a ViewModel and
         displays a Snackbar message with an undo option when the event is triggered. It uses
-        `collect` to observe the `savedArticleEvent` LiveData in the `SavedMatchesViewModel`. When
+        `collect` to observe the `savedMatchesEvent` LiveData in the `SavedMatchesViewModel`. When
         the event is triggered, it shows a Snackbar message with the text "Matches Deleted!" and an
-        undo button. If the user clicks the undo button, it triggers a ViewModel function to undo
-        the deletion of the match. */
+        undo button. If the user clicks the undo button, it triggers a ViewModel function with the
+        corresponding data to undo the deletion. */
         observeMatchDeletedEvent()
     }
 
@@ -197,7 +196,7 @@ class SavedMatchesFragment : Fragment(R.layout.fragment_saved_matches),
     private fun observeMatchDeletedEvent() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.savedArticleEvent.collect { event ->
+                viewModel.savedMatchesEvent.collect { event ->
                     when (event) {
                         is SavedMatchesViewModel.SavedMatchesEvent.ShowUndoDeleteMatchMessage -> {
                             Snackbar.make(requireView(), "Matches Deleted!", Snackbar.LENGTH_LONG)

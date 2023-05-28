@@ -22,12 +22,18 @@ abstract class MockWebServerBaseTest {
     lateinit var mockServer: MockWebServer
 
     @Before
+    /**
+     * This function sets up a mock server for testing purposes in a Kotlin application.
+     */
     open fun setUp() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         this.configureMockServer(context)
     }
 
     @After
+    /**
+     * The function stops a mock server.
+     */
     open fun tearDown() {
         this.stopMockServer()
     }

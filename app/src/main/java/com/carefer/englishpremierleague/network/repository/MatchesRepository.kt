@@ -8,7 +8,7 @@ import com.carefer.englishpremierleague.state.NetworkState
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/* The MatchesRepository class is a Kotlin implementation of INewsRepository that retrieves and stores
+/* The MatchesRepository class is a Kotlin implementation of IMatchesRepository that retrieves and stores
 match data from remote and local data sources. */
 @Singleton
 class MatchesRepository @Inject constructor(

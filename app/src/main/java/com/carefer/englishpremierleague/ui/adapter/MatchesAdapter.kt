@@ -7,10 +7,6 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.carefer.englishpremierleague.R
 import com.carefer.englishpremierleague.data.model.Matches
 import com.carefer.englishpremierleague.databinding.GroupHeaderLayoutBinding
@@ -33,17 +29,17 @@ class MatchesAdapter(
     /**
      * This function returns a RecyclerView ViewHolder based on the viewType parameter.
      *
-     * @param parent The parent parameter is the ViewGroup into which the created view will be inserted
-     * after it is bound to an adapter position.
+     * @param parent The parent ViewGroup is the view group that the created view will be a child of.
+     * It is typically the RecyclerView that is creating the view.
      * @param viewType viewType is an integer parameter that represents the type of view being created.
      * In this case, it is used to determine whether to create an item view or a group header view. The
-     * value of viewType is passed to the adapter's getItemViewType() method to determine the type of
-     * view to be created
+     * value of viewType is passed to the onCreateViewHolder() method by the RecyclerView.Adapter
+     * class.
      * @return A RecyclerView.ViewHolder object is being returned. The specific type of ViewHolder
-     * returned depends on the viewType parameter passed in. If viewType is VIEW_TYPE_ITEM, an
-     * ArticleViewHolder object is returned. If viewType is VIEW_TYPE_GROUP_HEADER, a
-     * GroupHeaderViewHolder object is returned. If viewType is any other value, an
-     * IllegalArgumentException is thrown.
+     * returned depends on the viewType parameter passed in. If viewType is VIEW_TYPE_ITEM, an instance
+     * of MatchesViewHolder is returned. If viewType is VIEW_TYPE_GROUP_HEADER, an instance of
+     * GroupHeaderViewHolder is returned. If viewType is any other value, an IllegalArgumentException
+     * is thrown.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -54,7 +50,7 @@ class MatchesAdapter(
                         parent,
                         false
                     )
-                ArticleViewHolder(binding)
+                MatchesViewHolder(binding)
             }
             VIEW_TYPE_GROUP_HEADER -> {
                 val headerView = GroupHeaderLayoutBinding.inflate(
@@ -81,7 +77,7 @@ class MatchesAdapter(
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is ArticleViewHolder -> {
+            is MatchesViewHolder -> {
                 val item = (getItem(position) as ListItem.Item).item
                 holder.bind(item)
             }
@@ -135,7 +131,7 @@ class MatchesAdapter(
 
     /* This is a Kotlin class for a RecyclerView ViewHolder that binds data to a layout for displaying
     match previews, including the match status, teams, competition, and published date. */
-    inner class ArticleViewHolder(private val binding: ItemMatchPreviewBinding) :
+    inner class MatchesViewHolder(private val binding: ItemMatchPreviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         /**

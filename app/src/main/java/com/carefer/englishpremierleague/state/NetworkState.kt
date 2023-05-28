@@ -1,10 +1,3 @@
-/*
- * *
- *  * Created by Rafsan Ahmad on 1/5/22, 11:57 PM
- *  * Copyright (c) 2022 . All rights reserved.
- *
- */
-
 package com.carefer.englishpremierleague.state
 
 /* This is a sealed class in Kotlin that represents the different states of a network request. It has a

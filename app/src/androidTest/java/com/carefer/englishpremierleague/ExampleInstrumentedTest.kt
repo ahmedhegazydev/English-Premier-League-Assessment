@@ -15,7 +15,12 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+
     @Test
+    /**
+     * The function retrieves the context of the app under test and checks if its package name matches
+     * a specific value.
+     */
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext

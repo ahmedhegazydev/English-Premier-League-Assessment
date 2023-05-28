@@ -1,16 +1,15 @@
-package com.carefer.englishpremierleague.web/*
- * *
- *  * Created by Rafsan Ahmad on 9/27/21, 5:30 PM
- *  * Copyright (c) 2021 . All rights reserved.
- *
- */
+package com.carefer.englishpremierleague.web
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.carefer.englishpremierleague.data.model.*
 import com.carefer.englishpremierleague.state.NetworkState
 
-/* The `FakeDataUtil` object contains several functions that generate fake data for testing purposes. */
+/* The `FakeDataUtil` object contains functions that generate fake data for testing purposes. It
+includes functions to generate a successful network state with a fake `MatchesResponse` object, a
+`LiveData` object containing a list of fake matches, a list of fake matches with various details,
+and a fake match object with various properties initialized. These functions can be used to test the
+functionality of the application without relying on real data. */
 object FakeDataUtil {
 
     /**

@@ -24,6 +24,13 @@ the `SingletonComponent`, which is the top-level component in the Hilt dependenc
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    /* This code is defining a Dagger Hilt provider method that provides a singleton instance of the
+    `EnglishPremierLeagueApplication` class. The `@Singleton` annotation ensures that only one
+    instance of the `EnglishPremierLeagueApplication` class is created and shared throughout the
+    application. The `@Provides` annotation indicates that this function is used to provide a
+    dependency for injection. The `@ApplicationContext` annotation specifies that the `Context`
+    parameter should be the application context. The function returns the `app` parameter casted to
+    the `EnglishPremierLeagueApplication` class. */
     @Singleton
     @Provides
     fun provideApplication(@ApplicationContext app: Context): EnglishPremierLeagueApplication {

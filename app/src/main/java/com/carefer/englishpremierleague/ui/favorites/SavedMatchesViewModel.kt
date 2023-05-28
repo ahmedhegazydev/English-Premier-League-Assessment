@@ -17,18 +17,18 @@ class SavedMatchesViewModel @Inject constructor(
     private val matchesRepository: MatchesRepository
 ) : ViewModel() {
 
-    /* `private val savedArticleEventChannel = Channel<SavedMatchesEvent>()` is creating a channel of
-    type `Channel<SavedMatchesEvent>()` which is used to send and receive events of type
-    `SavedMatchesEvent`. This channel is used to send events when a match is deleted and when the
-    "undo delete" button is clicked. The events are then received as a flow using
-    `savedArticleEventChannel.receiveAsFlow()`. This flow can be collected by other parts of the
-    code to receive events asynchronously. */
-    private val savedArticleEventChannel = Channel<SavedMatchesEvent>()
-    /* `val savedArticleEvent = savedArticleEventChannel.receiveAsFlow()` is creating a flow from the
-    `savedArticleEventChannel` channel. This flow can be collected by other parts of the code to
-    receive events of type `SavedMatchesEvent`. The `receiveAsFlow()` function converts the channel
-    into a flow, which can be used to receive events asynchronously. */
-    val savedArticleEvent = savedArticleEventChannel.receiveAsFlow()
+    /* `private val savedMatchesEventChannel = Channel<SavedMatchesEvent>()` is creating a channel of
+    type `SavedMatchesEvent`. This channel is used to send events from the ViewModel to other parts
+    of the code. The `Channel` class is a part of Kotlin coroutines and provides a way to send and
+    receive events between coroutines. In this case, the ViewModel sends events to the channel, and
+    other parts of the code can receive these events by collecting the flow created from the channel
+    using `savedMatchesEventChannel.receiveAsFlow()`. */
+    private val savedMatchesEventChannel = Channel<SavedMatchesEvent>()
+    /* `val savedMatchesEvent = savedMatchesEventChannel.receiveAsFlow()` is creating a flow from the
+    `savedMatchesEventChannel` channel. This flow can be collected by other parts of the code to
+    receive events sent by the ViewModel. The `receiveAsFlow()` function is a convenient way to
+    create a flow from a channel in Kotlin coroutines. */
+    val savedMatchesEvent = savedMatchesEventChannel.receiveAsFlow()
 
     /**
      * This Kotlin function returns all saved matches from a matches repository.
@@ -46,7 +46,7 @@ class SavedMatchesViewModel @Inject constructor(
     fun onMatchSwiped(matches: Matches) {
         viewModelScope.launch {
             matchesRepository.deleteMatches(matches)
-            savedArticleEventChannel.send(SavedMatchesEvent.ShowUndoDeleteMatchMessage(matches))
+            savedMatchesEventChannel.send(SavedMatchesEvent.ShowUndoDeleteMatchMessage(matches))
         }
     }
 
