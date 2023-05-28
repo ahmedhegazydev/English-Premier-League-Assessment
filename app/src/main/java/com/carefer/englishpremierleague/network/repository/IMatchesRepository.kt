@@ -1,10 +1,3 @@
-/*
- * *
- *  * Created by Rafsan Ahmad on 11/29/21, 4:41 PM
- *  * Copyright (c) 2021 . All rights reserved.
- *
- */
-
 package com.carefer.englishpremierleague.network.repository
 
 import androidx.lifecycle.LiveData

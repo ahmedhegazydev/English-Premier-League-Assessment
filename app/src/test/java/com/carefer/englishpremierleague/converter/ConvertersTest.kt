@@ -16,9 +16,15 @@ import org.junit.jupiter.api.BeforeEach
 converting JSON strings to objects and vice versa in a soccer application. */
 class ConvertersTest {
 
+    /* The above code is declaring a private variable named `gson` of type `Gson` and marking it with
+    the `lateinit` modifier, which means that it will be initialized later in the code. The `Gson`
+    class is a library for converting JSON strings to Kotlin objects and vice versa. */
     private lateinit var gson: Gson
 
     @BeforeEach
+    /**
+     * The function initializes MockK and creates a mock object for gson.
+     */
     fun setUp() {
         // Initialize MockK
         MockKAnnotations.init(this)
@@ -26,6 +32,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to an Area object in Kotlin.
+     */
     fun `fromArea should convert JSON string to Area object`() {
         // Arrange
         val json = "{\"id\": 1, \"name\": \"Area 1\"}"
@@ -40,6 +49,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if the `toArea` method in the `Converters` class correctly converts an `Area`
+     * object to a JSON string.
+     */
     fun `toArea should convert Area object to JSON string`() {
         // Arrange
         val area = Area(1, "Area 1")
@@ -54,6 +67,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if the `fromCompetition` method in the `Converters` class can correctly
+     * convert a JSON string to a `Competition` object.
+     */
     fun `fromCompetition should convert JSON string to Competition object`() {
         // Arrange
         val jsonString = "{\"id\": 1, \"name\": \"Competition 1\"}"
@@ -68,6 +85,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests whether the `toCompetition` method in the `Converters` class can convert a
+     * `Competition` object to a JSON string.
+     */
     fun `toCompetition should convert Competition object to JSON string`() {
         // Arrange
         val competition = Competition(1, "Competition 1")
@@ -82,6 +103,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to a Season object in Kotlin.
+     */
     fun `fromSeason should convert JSON string to Season object`() {
         // Arrange
         val jsonString = "{\"id\":1,\"startDate\":\"startDate\"," +
@@ -107,6 +131,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if the `toSeason` method in the `Converters` class correctly converts a
+     * `Season` object to a JSON string.
+     */
     fun `toSeason should convert Season object to JSON string`() {
         // Arrange
         val season = Season(1, "Season 1", stages = mutableListOf())
@@ -121,6 +149,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to a HomeTeam object.
+     */
     fun `fromHomeTeam should convert JSON string to HomeTeam object`() {
         // Arrange
         val jsonString = "{\"id\":1,\"name\":\"Home Team 1\"}"
@@ -135,6 +166,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests whether the `toHomeTeam` method in the `Converters` class correctly converts
+     * a `HomeTeam` object to a JSON string.
+     */
     fun `toHomeTeam should convert HomeTeam object to JSON string`() {
         // Arrange
         val homeTeam = HomeTeam(
@@ -156,6 +191,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to an AwayTeam object.
+     */
     fun `fromAwayTeam should convert JSON string to AwayTeam object`() {
         // Arrange
         val jsonString = "{\"id\":1,\"name\":\"Away Team 1\"}"
@@ -170,6 +208,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests whether the `toAwayTeam` method in the `Converters` class correctly converts
+     * an `AwayTeam` object to a JSON string.
+     */
     fun `toAwayTeam should convert AwayTeam object to JSON string`() {
         // Arrange
         val awayTeam = AwayTeam(
@@ -191,6 +233,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to a Score object using a Converters class.
+     */
     fun `fromScore should convert JSON string to Score object`() {
         // Arrange
         val jsonString = "{\"home\": 2, \"away\": 1}"
@@ -206,6 +251,10 @@ class ConvertersTest {
 
 
     @Test
+    /**
+     * The `toScore` function in Kotlin converts a `Score` object to a JSON string and tests if the
+     * conversion is correct.
+     */
     fun `toScore should convert Score object to JSON string`() {
         // Arrange
         val score = Score(home = 2, away = 1, fullTime = FullTime(), halfTime = HalfTime())
@@ -221,6 +270,10 @@ class ConvertersTest {
 
 
     @Test
+    /**
+     * The function tests whether the `fromGoals` method in the `Converters` class can correctly
+     * convert a JSON string to a `Goals` object.
+     */
     fun `fromGoals should convert JSON string to Goals object`() {
         // Arrange
         val jsonString = "{\"minute\": 2, \"injuryTime\": injuryTime}"
@@ -235,6 +288,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to a Penalties object in Kotlin.
+     */
     fun `fromPenalties should convert JSON string to Penalties object`() {
         val jsonString = "{\"player\": {" +
                 "\"id\": 1," +
@@ -260,6 +316,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests whether the `toPenalties` method in the `Converters` class correctly converts
+     * a `Penalties` object to a JSON string.
+     */
     fun `toPenalties should convert Penalties object to JSON string`() {
         // Arrange
         val penalties = Penalties(
@@ -285,6 +345,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to an Odds object in Kotlin.
+     */
     fun `fromOdds should convert JSON string to Odds object`() {
         // Arrange
         val jsonString = "{\"homeWin\":2.5,\"draw\":3.0,\"awayWin\":2.8}"
@@ -300,6 +363,10 @@ class ConvertersTest {
 
 
     @Test
+    /**
+     * The function tests whether the `toOdds` method in the `Converters` class correctly converts an
+     * `Odds` object to a JSON string.
+     */
     fun `toOdds should convert Odds object to JSON string`() {
         // Arrange
         val odds = Odds(homeWin = 2.5, 3.0, awayWin = 2.8)
@@ -314,6 +381,10 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests if a JSON string can be converted to a Referees object using a Converters
+     * class.
+     */
     fun `fromReferees should convert JSON string to List of Referees`() {
         // Arrange
         val jsonString = "{" +

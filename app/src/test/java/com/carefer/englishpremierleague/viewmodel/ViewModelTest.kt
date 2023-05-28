@@ -1,20 +1,9 @@
-/*
- * *
- *  * Created by Rafsan Ahmad on 9/27/21, 5:30 PM
- *  * Copyright (c) 2021 . All rights reserved.
- *
- */
 
 package com.carefer.englishpremierleague.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.MutableLiveData
-import androidx.test.core.app.ActivityScenario.launch
 import com.carefer.englishpremierleague.web.FakeDataUtil
 import com.carefer.englishpremierleague.MainCoroutineRule
-import com.carefer.englishpremierleague.data.model.Matches
-import com.carefer.englishpremierleague.data.model.MatchesResponse
-import com.carefer.englishpremierleague.di.CoroutinesDispatcherProvider
 import com.carefer.englishpremierleague.network.repository.MatchesRepository
 import com.carefer.englishpremierleague.provideFakeCoroutinesDispatcherProvider
 import com.carefer.englishpremierleague.runBlockingTest
@@ -23,18 +12,18 @@ import com.carefer.englishpremierleague.ui.list.ShowALlMatchesListViewModel
 import com.carefer.englishpremierleague.util.NetworkHelper
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Mockito.mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
 @ExperimentalCoroutinesApi
+/* The ViewModelTest class contains unit tests for a Kotlin ViewModel that retrieves and displays a
+list of matches. */
 class ViewModelTest {
     // Executes tasks in the Architecture Components in the same thread
     @get:Rule
@@ -45,16 +34,37 @@ class ViewModelTest {
     var coroutineRule = MainCoroutineRule()
 
     @Mock
+    /* `private lateinit var networkHelper: NetworkHelper` is declaring a private property
+    `networkHelper` of type `NetworkHelper` that will be initialized later in the `setUp()`
+    function. This property is used to hold an instance of the `NetworkHelper` class, which is used
+    to check if the device is connected to the internet. The `lateinit` keyword is used to indicate
+    that the property will be initialized later, after the object is created. */
     private lateinit var networkHelper: NetworkHelper
 
     @Mock
     private lateinit var matchesRepository: MatchesRepository
 
+    /* `private val testDispatcher = coroutineRule.testDispatcher` is initializing a test dispatcher
+    that will be used to run coroutines in unit tests. It is part of the setup process for the unit
+    tests and is used to ensure that coroutines are run on the main thread during testing. The
+    `coroutineRule` is an instance of `MainCoroutineRule`, which is a JUnit rule that swaps the main
+    dispatcher with a test dispatcher. The `testDispatcher` is then used to provide a fake
+    `CoroutineDispatcher` to the `coroutinesDispatcherProvider` in the view model, which allows for
+    the testing of coroutines in a controlled environment. */
     private val testDispatcher = coroutineRule.testDispatcher
 
+    /* `private lateinit var viewModel: ShowALlMatchesListViewModel` is declaring a private property
+    `viewModel` of type `ShowALlMatchesListViewModel` that will be initialized later in the
+    `setUp()` function. This property is used to hold an instance of the view model being tested in
+    the unit tests. The `lateinit` keyword is used to indicate that the property will be initialized
+    later, after the object is created. */
     private lateinit var viewModel: ShowALlMatchesListViewModel
 
     @Before
+    /**
+     * This function sets up a test environment for a Kotlin function that uses Mockito and initializes
+     * a view model.
+     */
     fun setUp() {
         MockitoAnnotations.openMocks(this)
         viewModel = ShowALlMatchesListViewModel(
