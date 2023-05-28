@@ -38,6 +38,12 @@ class DateUtilTest{
 
     //2022-03-09T21:10:00 doesn't returns 09.03.2022`
     @Test
+    /* `fun dateConvertTest1(){` is a unit test function that tests the `changeDateFormat` function in
+    the `DateUtil` class. It checks if the function correctly converts the input date string
+    "2022-03-09T21:10:00" to the expected output format "09.03.2022". The test uses the `assertThat`
+    method from the `Truth` library to compare the actual output of the `changeDateFormat` function
+    with the expected output. However, this test is expected to fail because the expected output is
+    not the same as the actual output. */
     fun dateConvertTest1(){
         val result = DateUtil.changeDateFormat("2022-03-09T21:10:00")
         assertThat(result).isNotEqualTo("09.03.2022")
@@ -45,6 +51,11 @@ class DateUtilTest{
 
     //2022-03-09T21:10:00 returns 09.03.2022 21:10:00`
     @Test
+    /* `fun dateConvertTest2(){` is a unit test function that tests the `changeDateFormat` function in
+    the `DateUtil` class. It checks if the function correctly converts the input date string
+    "2022-03-09T21:10:00" to the expected output format "09.03.2022 21:10:00". The test uses the
+    `assertThat` method from the `Truth` library to compare the actual output of the
+    `changeDateFormat` function with the expected output. */
     fun dateConvertTest2(){
         val result = DateUtil.changeDateFormat("2022-03-09T21:10:00")
         assertThat(result).isEqualTo("09.03.2022 21:10:00")

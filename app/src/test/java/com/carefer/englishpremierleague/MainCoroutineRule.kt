@@ -69,6 +69,10 @@ experimental APIs from the Kotlin coroutines library. */
 fun provideFakeCoroutinesDispatcherProvider(
     dispatcher: TestCoroutineDispatcher?
 ): CoroutinesDispatcherProvider {
+    /* `val sharedTestCoroutineDispatcher = TestCoroutineDispatcher()` creates a new instance of
+    `TestCoroutineDispatcher` which is used as the default dispatcher for all three types of
+    coroutines (IO, computation, and main) if a specific dispatcher is not provided. This allows for
+    consistent and controlled testing of coroutines in a unit testing environment. */
     val sharedTestCoroutineDispatcher = TestCoroutineDispatcher()
     return CoroutinesDispatcherProvider(
         dispatcher ?: sharedTestCoroutineDispatcher,

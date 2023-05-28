@@ -84,7 +84,7 @@ The `ApplicationModule.kt` class provides  `Singleton` reference for `Retrofit`,
 ### Network
 
 The network layer is composed of Repository, ApiService.
-`NewsApi` - Is an interface containing the suspend functions for retrofit API call.
+`MatchesApi` - Is an interface containing the suspend functions for retrofit API call.
 
 `MatchesRepository` - Holds the definition of the remote/local repository call.
 
@@ -136,7 +136,7 @@ you can set the gradle jdk in `Preferences->Build Tools->Gradle->Gradle JDK`
 
 ## Testing
 
-Unit testing has been added for `AllMatchesListFragment` & `NewsRepository`.
+Unit testing has been added for `AllMatchesListFragment` & `MatchesRepository`.
 
 ### `ViewModelTest.kt`
 

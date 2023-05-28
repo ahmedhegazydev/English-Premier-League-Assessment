@@ -25,12 +25,24 @@ import org.mockito.MockitoAnnotations
 /* The ViewModelTest class contains unit tests for a Kotlin ViewModel that retrieves and displays a
 list of matches. */
 class ViewModelTest {
-    // Executes tasks in the Architecture Components in the same thread
     @get:Rule
+    /* `val instantTaskExecutorRule = InstantTaskExecutorRule()` is creating an instance of
+    `InstantTaskExecutorRule`, which is a JUnit rule that ensures that LiveData updates happen on
+    the main thread during unit testing. This is important because LiveData is designed to update
+    the UI, which can only be done on the main thread. By using this rule, the unit tests can
+    simulate the behavior of LiveData in a controlled environment, which makes it easier to test the
+    behavior of the ViewModel. */
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    // Set the main coroutines dispatcher for unit testing.
     @get:Rule
+    /* `var coroutineRule = MainCoroutineRule()` is creating an instance of `MainCoroutineRule`, which
+    is a JUnit rule that swaps the main dispatcher with a test dispatcher. This is important because
+    coroutines are designed to run on the main thread, which can cause issues during unit testing.
+    By using this rule, the unit tests can simulate the behavior of coroutines in a controlled
+    environment, which makes it easier to test the behavior of the ViewModel. The `coroutineRule`
+    variable is then used to provide a fake `CoroutineDispatcher` to the
+    `coroutinesDispatcherProvider` in the view model, which allows for the testing of coroutines in
+    a controlled environment. */
     var coroutineRule = MainCoroutineRule()
 
     @Mock
@@ -42,6 +54,11 @@ class ViewModelTest {
     private lateinit var networkHelper: NetworkHelper
 
     @Mock
+    /* `private lateinit var matchesRepository: MatchesRepository` is declaring a private property
+    `matchesRepository` of type `MatchesRepository` that will be initialized later in the `setUp()`
+    function. This property is used to hold an instance of the `MatchesRepository` class, which is
+    responsible for retrieving data related to matches. The `lateinit` keyword is used to indicate
+    that the property will be initialized later, after the object is created. */
     private lateinit var matchesRepository: MatchesRepository
 
     /* `private val testDispatcher = coroutineRule.testDispatcher` is initializing a test dispatcher

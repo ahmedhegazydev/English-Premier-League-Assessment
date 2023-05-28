@@ -409,6 +409,9 @@ class ConvertersTest {
 
 
     @Test
+    /**
+     * The function tests whether a Kotlin method can convert a list of Referees to a JSON string.
+     */
     fun `toReferees should convert List of Referees to JSON string`() {
         // Arrange
         val referees =
@@ -432,6 +435,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests the conversion of a JSON string to a list of goals using Kotlin.
+     */
     fun `fromGoalsList should convert JSON string to List of Goals`() {
         // Arrange
         val jsonString =
@@ -450,6 +456,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests whether a Kotlin function can convert a list of goals to a JSON string.
+     */
     fun `toGoalsList should convert List of Goals to JSON string`() {
         // Arrange
         val goals = mutableListOf(
@@ -477,6 +486,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests the conversion of a JSON string to a list of penalties using Kotlin.
+     */
     fun `fromPenaltiesList should convert JSON string to List of Penalties`() {
         // Arrange
         val jsonString = "[" +
@@ -518,6 +530,9 @@ class ConvertersTest {
     }
 
     @Test
+    /**
+     * The function tests whether a Kotlin function can convert a list of penalties to a JSON string.
+     */
     fun `toPenaltiesList should convert List of Penalties to JSON string`() {
         // Arrange
         val penalties = mutableListOf(
